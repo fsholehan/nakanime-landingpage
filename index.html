@@ -5,7 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/public/style.css" rel="stylesheet" />
   </head>
-  <body>
-    <h1 class="text-3xl font-bold underline">Hello world!</h1>
+  <body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white p-10 rounded shadow-md text-center">
+      <span class="text-lg sm:text-2xl mb-4"
+        >The domain has changed! Please wait while we redirect you to
+        nknime.com.
+      </span>
+      <h1 class="text-2xl mb-4">
+        Redirecting in
+        <span id="countdown" class="text-red-500 font-bold">5</span> seconds...
+      </h1>
+      <p class="text-gray-600 mb-4">
+        You will be redirected to
+        <a href="https://nknime.com" class="text-blue-500 underline"
+          >nknime.com</a
+        >
+      </p>
+      <p class="text-gray-500">
+        If not redirected,
+        <a href="https://nknime.com" class="text-blue-500 underline"
+          >click here</a
+        >.
+      </p>
+    </div>
+
+    <script>
+      let seconds = 5;
+
+      function countdown() {
+        document.getElementById("countdown").textContent = seconds;
+        if (seconds > 0) {
+          seconds--;
+          setTimeout(countdown, 1000);
+        } else {
+          window.location.href = "https://nknime.com";
+        }
+      }
+
+      countdown();
+    </script>
   </body>
 </html>
